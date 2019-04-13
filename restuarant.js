@@ -1,4 +1,5 @@
 var express = require("express");
+var path = require("path");
 
 var app = express();
 var PORT = 3000;
@@ -39,7 +40,7 @@ var person = [
         routeName: "Mark",
         name: "Mark",
         party: 4,
-        phoneNum: 9103184741
+        email: "emailme@email.com"
     }
 ]
 
@@ -65,6 +66,9 @@ app.get("/api/person", function(req, res) {
     return res.json(person);
 });
 
+app.post("/api/tables", function (req, res) {
+    
+})
 // Creates a new reservation and pushes the person into the waiting list
 
 
