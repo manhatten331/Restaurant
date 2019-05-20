@@ -40,7 +40,7 @@ var person = [
         routeName: "Mark",
         name: "Mark",
         party: 4,
-        phoneNum: 9103184741
+        email: "emailme@email.com"
     }
 ]
 
@@ -67,7 +67,19 @@ app.get("/api/person", function(req, res) {
 });
 
 // Creates a new reservation and pushes the person into the waiting list
+app.post("/api/person", function(req, res) {
+    var newcharacter = req.body;
 
+    // Using a RegEx Pattern to remove spaces from newCharacter
+    // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+    newcharacter.routeName = newcharacter.name.replace(/\s+/g, "").toLowerCase();
+  
+    console.log(newcharacter);
+  
+    characters.push(newcharacter);
+  
+    res.json(newcharacter);
+});
 
 // Runs the Server
 app.listen(PORT, function() {
